@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 99px;
+        }
+
+        nav {
+            margin-top: 20px;
+            font-size: large;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: lawngreen;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        nav a:hover
+        {
+            color: white;
+            background-color: blue;
+        } 
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: lightblue;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Scorecard</a></li>
+            <li><a href="/a_quiz">Apply Quiz</a></li>
+        </ul>
+    </nav>
+    <h1>Scorecard</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+                <tr>
+                    <td>{{ score.name }}</td>
+                    <td>{{ score.roll_no }}</td>
+                    <td>{{ score.score }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
